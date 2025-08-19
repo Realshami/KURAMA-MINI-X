@@ -1,191 +1,158 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KURAMA MINI</title>
+  KURAMA MD PAIR CODE</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #000, #000); /* Dark gradient background */
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://wallpapercave.com/w/wp13381180.jpg"); /* Set the background image */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
     }
 
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
     }
 
     .box {
-      width: 100%;
-      max-width: 350px;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
-      border-radius: 15px;
-      backdrop-filter: blur(10px); /* Glassy blur */
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      height: 330px;
+      padding: 20px;
+      position: relative;
       text-align: center;
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 10px;
       transform: perspective(1000px) rotateY(0deg);
-      transition: transform 0.3s ease;
-    }
-
-    .box:hover {
-      transform: perspective(1000px) rotateY(5deg); /* Subtle 3D hover effect */
+      box-shadow: none; /* Removed box shadow */
+      position: relative;
     }
 
     #text {
-      color: #fff; /* White text for contrast */
+      color: #000; /* Set the text color to black (#000) */
+    }
+
+    .input-container input {
+      color: #000; /* Set the text color to black (#000) */
     }
 
     .centered-text {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    h4 {
-      color: #ff9d9d; /* Accent color for version */
-      margin-bottom: 15px;
-    }
-
-    h6 {
-      color: #ccc;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
+      color: #000; /* Set the text color to black (#000) */
     }
 
     .input-container {
       display: flex;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 5px;
-      gap: 5px;
+      background: white;
+      border-radius: 1rem;
+      background: linear-gradient(45deg, #c5c5c5 0%, #ffffff 100%);
+      padding: 0.3rem;
+      gap: 0.3rem;
+      max-width: 300px; /* Set your desired maximum width */
       width: 100%;
-      max-width: 320px;
-      transition: all 0.3s ease;
     }
 
     .input-container input {
-      flex: 1;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.8rem 0 0 0.8rem;
+      background: #e8e8e8;
+      width: 89%;
+      flex-basis: 75%;
+      padding: 1rem;
       border: none;
-      border-radius: 8px 0 0 8px;
-      color: #fff;
-      font-size: 1rem;
-      border-left: 3px solid #ff6b6b; /* Vibrant accent */
-      transition: all 0.3s ease;
-    }
-
-    .input-container input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      border-left: 2px solid #ff9d9d;
+      color: #5e5e5e;
+      transition: all 0.2s ease-in-out;
     }
 
     .input-container input:focus {
-      border-left: 3px solid #ff2d55;
-      background: rgba(255, 255, 255, 0.3);
+      border-left: 2px solid #ff9d9d;
       outline: none;
     }
 
     .input-container button {
-      padding: 12px;
-      background: linear-gradient(135deg, #8a2be2, #4b0082); /* Purple gradient */
-      border: none;
-      border-radius: 0 8px 8px 0;
-      color: #fff;
-      font-weight: 700;
+      flex-basis: 25%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #8a2be2 0%, #800080 100%); /* Purple background */
+      font-weight: 900;
+      letter-spacing: 0.3rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      color: white;
+      border: none;
+      width: 100%;
+      border-radius: 0 1rem 1rem 0;
+      transition: all 0.2s ease-in-out;
     }
 
     .input-container button:hover {
-      background: linear-gradient(135deg, #32CD32, #A8E4A0); /* Green gradient on hover */
-      color: #ff2d55; /* Red text on hover */
-      transform: translateY(-2px); /* Subtle lift effect */
-    }
-
-    #waiting-message, #pair a {
-      color: #fff;
-      font-size: 1rem;
-      margin-top: 20px;
-      display: block;
-    }
-
-    #copy {
-      cursor: pointer;
-      color: #ff6b6b;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    #copy:hover {
-      color: #ff2d55;
+      background: linear-gradient(135deg, #A8E4A0 0%, #32CD32 100%);
+      color: red; /* Change text color on hover to red */
     }
 
     @media (max-width: 500px) {
-      .box {
-        padding: 20px;
-      }
-
       .input-container {
         flex-direction: column;
-        gap: 10px;
       }
 
       .input-container input {
-        border-radius: 8px;
-        border-left: none;
-        border-bottom: 3px solid #ff6b6b;
+        border-radius: 0.8rem;
       }
 
       .input-container button {
-        border-radius: 8px;
-      }
-
-      .centered-text {
-        font-size: 1.2rem;
+        padding: 1rem;
+        border-radius: 0.8rem;
       }
     }
+
+    .centered-text {
+      text-align: center;
+    }
   </style>
+  
+<script type='text/javascript' src='//pl26691855.profitableratecpm.com/1d/10/ea/1d10ea1b555f7eba7bc04001ce694cd2.js'></script>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7928662104523773"
+     crossorigin="anonymous"></script>
 </head>
 <body>
+
+<script type='text/javascript' src='//pl26691884.profitableratecpm.com/92/96/c0/9296c0e42a427092d5f0972f2d5cfab1.js'></script>
+<script async="async" data-cfasync="false" src="//pl26691893.profitableratecpm.com/b909c75510d742b0947606d85ee27366/invoke.js"></script>
   <div class="container">
     <div class="main">
       <div class="box" id="box">
         <div id="text">
-          <i class="fa fa-user" style="font-size: 2rem; color: #ff6b6b;"></i>
-          <h3 class="centered-text">LINK WITH PHONE NUMBER</h3>
-          <h4>KURAMA MINI BOT V1</h4>
-          <h6>---------------</h6>
-          <div class="input-container">
-            <input placeholder="+94xxxxxxxxx" type="number" id="number" name="">
-            <button id="submit">SUBMIT</button>
-          </div>
-          <a id="waiting-message" class="centered-text" style="display: none;">In process...</a>
-          <main id="pair"></main>
+          <i class="fa fa-user"></i>
+          <p>
+            <h3 class="centered-text">Link with phone number</h3>
+            <br>
+            <h6>⚙Enter your number with country code.⚙</h6>
+            <div class="input-container">
+              <input placeholder="+94775345719" type="number" id="number" placeholder="⚙enter your phone number with country code⚙" name="">
+              <button id="submit">enter</button>
+            </div>
+           
+            <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
+            <br>
+            <br>
+            <main id="pair"></main>
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
   <script>
     let a = document.getElementById("pair");
     let b = document.getElementById("submit");
@@ -196,28 +163,32 @@
       let text = document.getElementById("copy").innerText;
       let obj = document.getElementById("copy");
       await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "COPIED ✅";
-      obj.style = "color:#32CD32;font-weight:bold";
+      obj.innerText = "COPIED";
+      obj.style = "color:blue;font-weight:bold";
+      obj.size = "5";
       setTimeout(() => {
         obj.innerText = text;
-        obj.style = "color:#ff6b6b;font-weight:bold";
+        obj.style = "color:black;font-weight-bold";
+        obj.size = "5";
       }, 500);
     }
 
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:#fff;font-weight:bold">❗ Enter your WhatsApp number with country code.</a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">❗Enter your whatsapp number with country code.</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:#ff6b6b;font-weight:bold">❌ Invalid number format ❌</a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">❌Invalid number format❌</a><br><br>';
       } else {
         const bc = c.value.replace(/[^0-9]/g, "");
         let bb = "";
         let bbc = "";
         const cc = bc.split('');
-        cc.forEach((a, index) => {
+        cc.map(a => {
           bbc += a;
-          if (bbc.length === 3 || bbc.length === 8) {
+          if (bbc.length == 3) {
+            bb += " " + a;
+          } else if (bbc.length == 8) {
             bb += " " + a;
           } else {
             bb += a;
@@ -225,17 +196,15 @@
         });
         c.type = "text";
         c.value = "+" + bb;
-        c.style = "color:#fff;font-size:18px";
-        a.innerHTML = '<a style="color:#fff;font-weight:bold">Please wait...</a><br><br>';
-        try {
-          let { data } = await axios(`/code?number=${bc}`);
-          let code = data.code || "Service Unavailable";
-          a.innerHTML = '<font id="copy" onclick="Copy()" style="color:#ff6b6b;font-weight:bold" size="5">CODE: <span style="color:#fff;font-weight:bold">' + code + '</span></font><br><br><br>';
-        } catch (error) {
-          a.innerHTML = '<a style="color:#ff6b6b;font-weight:bold">❌ 𝗘𝗥𝗥𝗢𝗥 𝗙𝗘𝗧𝗖𝗛𝗜𝗡𝗚 𝗖𝗢𝗗𝗘 ❌</a><br><br>';
-        }
+        c.style = "color:black;font-size:20px";
+        a.innerHTML = '<a style="color:black;font-weight:bold">Please wait🔎 </a><br><br>';
+        let { data } = await axios(`https://asitha.top/anunge-reddawal-hoyanna-epa-utto-awajathaka-ponnayek-wenna-epa/?num=${bc}`);
+        let code = data.code || "Service Unavailable";
+        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
       }
     });
   </script>
+
+
 </body>
 </html>
